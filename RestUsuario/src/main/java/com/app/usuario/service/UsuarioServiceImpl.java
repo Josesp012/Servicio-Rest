@@ -9,10 +9,10 @@ import com.app.usuario.model.entity.Usuario;
 import com.app.usuario.model.repository.UsuarioRepository;
 
 @Service
-public class UsuarioServiceImpl implements IService{
+public class UsuarioServiceImpl implements IService {
 
 	private final UsuarioRepository usuarioRepository;
-	
+
 	public UsuarioServiceImpl(UsuarioRepository usuarioRepository) {
 		this.usuarioRepository = usuarioRepository;
 	}
@@ -21,7 +21,7 @@ public class UsuarioServiceImpl implements IService{
 	public Usuario post(Usuario usuario) {
 		try {
 			return usuarioRepository.save(usuario);
-		}catch(Exception e) {
+		} catch (Exception e) {
 			return null;
 		}
 	}
@@ -33,16 +33,14 @@ public class UsuarioServiceImpl implements IService{
 
 	@Override
 	public Usuario findById(Long id) {
-		return usuarioRepository.findById(id).orElseThrow(
-				()->{
-					throw new ResourceNotFoundException("No se encontró el usuario con ID: " + id);
-				}
-				);
+		return usuarioRepository.findById(id).orElseThrow(() -> {
+			throw new ResourceNotFoundException("No se encontró el usuario con ID: " + id);
+		});
 	}
 
 	@Override
 	public void deleteById(Long id) {
-		usuarioRepository.deleteById(id);	
+		usuarioRepository.deleteById(id);
 	}
 
 	@Override

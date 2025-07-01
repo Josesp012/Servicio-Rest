@@ -22,20 +22,20 @@ import jakarta.persistence.Table;
 @Entity
 @Table(name = "USUARIOS")
 public class Usuario {
-	
+
 	@Id
-	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator="USUARIO_SEQ")
-	@SequenceGenerator(name="USUARIO_SEQ",sequenceName="USUARIO_SEQ", allocationSize = 1)
-	@Column(name="ID_USUARIO")
+	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "USUARIO_SEQ")
+	@SequenceGenerator(name = "USUARIO_SEQ", sequenceName = "USUARIO_SEQ", allocationSize = 1)
+	@Column(name = "ID_USUARIO")
 	private Long id;
-	
-	@Column(name="NOMBRE")
+
+	@Column(name = "NOMBRE")
 	private String nombre;
-	
-	@Column(name="CORREO")
+
+	@Column(name = "CORREO")
 	private String correo;
-	
-	@Column(name="CONTRASEñA")
+
+	@Column(name = "CONTRASEñA")
 	private String contraseña;
 
 	public Usuario() {
@@ -80,5 +80,5 @@ public class Usuario {
 	public void setContraseña(String contraseña) {
 		this.contraseña = contraseña;
 	}
-	
+
 }
